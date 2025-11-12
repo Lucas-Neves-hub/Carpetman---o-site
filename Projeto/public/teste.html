@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pedir dados</h1>
+    <button onclick="pedir()">Pedir</button>
+</body>
+</html>
+
+<script>
+
+    async function pedir() {
+        
+        const resp = await fetch("/usuarios/obterTodos");
+        const dados = await resp.json();
+
+        console.log(dados);
+
+    }
+
+
+</script>
