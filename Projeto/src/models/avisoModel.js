@@ -89,6 +89,8 @@ function deletar(idAviso) {
     return database.executar(instrucaoSql);
 }
 
+
+
 module.exports = {
     listar,
     listarPorUsuario,

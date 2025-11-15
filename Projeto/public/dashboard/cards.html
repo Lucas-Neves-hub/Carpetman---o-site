@@ -82,6 +82,9 @@
                         <p>Perigo</p>
                         <p>&gt;=23°C</p>
                     </div>
+                    <button  onclick="return insereCurtida()">Curtir</button>
+                    <button  onclick="return insereDescurtida()">Descurtir</button>
+                    
                 </div>
             </div>
 
@@ -114,6 +117,77 @@
                     `
         });
     }
+    
+     function insereCurtida() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var curtida = "like";
+
+    fetch("http://localhost:3333/insereCurtida", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            curtida: curtida,
+            fkUsuario: idUsuario
+        })
+    })
+    .then(function (resposta) {
+        console.log("resposta:", resposta);
+
+        if (resposta.ok) {
+            alert("Curtida registrada pelo usuário ID: " + idUsuario);
+            window.location = "/dashboard/cards.html";
+
+        } else if (resposta.status == 404) {
+            alert("Rota não encontrada (404)");
+
+        } else {
+            throw ("Erro ao registrar curtida! Código: " + resposta.status);
+        }
+    })
+    .catch(function (erro) {
+        console.log("#ERRO:", erro);
+    });
+
+    return true;
+}
+
+ function insereDescurtida() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var descurtida = "dislike";
+
+    fetch("http://localhost:3333/insereDescurtida", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            descurtida: descurtida,
+            fkUsuario: idUsuario
+        })
+    })
+    .then(function (resposta) {
+        console.log("resposta:", resposta);
+
+        if (resposta.ok) {
+            alert("Descurtida registrada pelo usuário ID: " + idUsuario);
+            window.location = "/dashboard/cards.html";
+
+        } else if (resposta.status == 404) {
+            alert("Rota não encontrada (404)");
+
+        } else {
+            throw ("Erro ao registrar Descurtida! Código: " + resposta.status);
+        }
+    })
+    .catch(function (erro) {
+        console.log("#ERRO:", erro);
+    });
+
+    return true;
+}
+
 
 </script>
 
