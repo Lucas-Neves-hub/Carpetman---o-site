@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
+    
 
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -53,48 +54,72 @@
             </div>
 
         </div>
+</div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
-            <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                    Legenda - Parâmetros para Alertas
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Perigo</p>
-                        <p>&lt;=5°C</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Alerta</p>
-                        <p>&lt;=10°C</p>
-                    </div>
-                    <div class="item-regua ideal">
-                        <p>Ideal</p>
-                        <p>20°C</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Alerta</p>
-                        <p>&gt;=22°C</p>
-                    </div>
-                    <div class="item-regua perigo-quente">
-                        <p>Perigo</p>
-                        <p>&gt;=23°C</p>
-                    </div>
-                    <button  onclick="return insereCurtida()">Curtir</button>
-                    <button  onclick="return insereDescurtida()">Descurtir</button>
-                    
-                </div>
-            </div>
+    <div class="video">
+        <h1>macaco vei</h1>
+<video controls autoplay src="/clipes/1carpetman-live-without-a-system.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
 
-            <div class="cards" id="cardAquarios">
+<video controls autoplay src="/clipes/2Carpetman – My honey.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
 
-            </div>
+<video controls autoplay src="/clipes/3Carpetman – Feel so cold.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
 
-        </div>
+<video controls autoplay src="/clipes/4Carpetman – Endless fight.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
 
-    </div>
+<video controls autoplay src="/clipes/5Carpetman – Can't  lose more.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/6Carpetman – You Will Never Know it.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/7Сarpetman - Anyway, I Love It.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/8Carpetman & Theo Remme - Trembling Island.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/9Carpetman – What Does It Mean To You.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/10Carpetman – Make It Lower.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/11Carpetman – Smoking Cherry.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/12Carpetman – WalKing Through the Code.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/13Carpetman x Scott Rill - Shades Of Gray.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/14Carpetman, Black Soil - Let It Burn.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/15Carpetman, Black Soil – Alleys of My Mind.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/16Carpetman – Call Me Insane.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/17Carpetman - Manuscript.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/18Carpetman – Ain'tgottafeelthatpain.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/19Carpetman - What's going on.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+<video controls autoplay src="/clipes/20Carpetman - Golden Tear.mp4"></video>
+    <button onclick="insereDescurtida()">Descurtir</button><button onclick="insereCurtida()">Curtir</button>
+
+</div>
+    
 
 </body>
 
@@ -102,6 +127,7 @@
 
     function exibirAquarios() {
         JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+            
             document.getElementById("cardAquarios").innerHTML += `
                     <div class="card-aquario">
                         <div class="title-aquario">
