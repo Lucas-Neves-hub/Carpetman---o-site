@@ -11,13 +11,17 @@ body {
 body .video {
    display: flex;
    flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+ 
+  color: aliceblue;
 }
 
-body .video video {
-  height: 70px;
-  width: 130px;
+body .video video {display: flex;
+  flex-direction: row;
+  height: 550px;
+  width: 900px;
+
 }
 
 .label-captura {

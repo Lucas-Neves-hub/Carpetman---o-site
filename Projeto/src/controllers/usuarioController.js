@@ -98,7 +98,6 @@ function obterTodos(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
    
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-       
         usuarioModel.obterTodos()
             .then(
                 function (resultado) {

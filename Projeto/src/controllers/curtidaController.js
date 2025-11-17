@@ -2,9 +2,11 @@ var curtidaModel = require("../models/curtidaModel");
 
 
 function insereCurtida(req, res) {
-    var curtida = 'like';
+    var fkUsuario = req.body.fkUsuario;
+    var idMusica = req.body.idMusica;
+    var curtida  = req.body.curtida;
 
-    curtidaModel.insereCurtida(curtida).then(function(resposta){
+    curtidaModel.insereCurtida(curtida, idMusica, fkUsuario).then(function(resposta){
         res.status(200).send("Curtida feita com sucesso");
     }).catch(function(erro){
         res.status(500).json(erro.sqlMessage);
@@ -12,9 +14,11 @@ function insereCurtida(req, res) {
 }
 
 function insereDescurtida(req, res) {
-    var descurtida = 'dislike';
+  var fkUsuario = req.body.fkUsuario;
+    var idMusica = req.body.idMusica;
+    var descurtida  = req.body.curtida;
 
-    curtidaModel.insereDescurtida(descurtida).then(function(resposta){
+    curtidaModel.insereDescurtida(descurtida, idMusica, fkUsuario).then(function(resposta){
         res.status(200).send("Descurtida feita com sucesso");
     }).catch(function(erro){
         res.status(500).json(erro.sqlMessage);
