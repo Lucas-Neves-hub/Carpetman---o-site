@@ -18,5 +18,9 @@ router.post("/insereDescurtida", function
     }
 )
 
+router.get("/validacao", function (req, res) {
+    curtidaController.validacao(req, res);
+});
+
 module.exports = router;
 
