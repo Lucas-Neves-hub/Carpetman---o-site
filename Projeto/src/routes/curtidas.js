@@ -18,6 +18,12 @@ router.post("/insereDescurtida", function
     }
 )
 
+router.delete("/deletar", function
+    (req,res){
+        curtidaController.deletar(req,res);
+    }
+)
+
 router.get("/validacao", function (req, res) {
     curtidaController.validacao(req, res);
 });

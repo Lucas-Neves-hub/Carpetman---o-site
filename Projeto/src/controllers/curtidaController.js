@@ -25,7 +25,9 @@ function insereDescurtida(req, res) {
         .catch(erro => {
             console.error(erro);
             res.status(500).json(erro);
+           
         });
+        
 }
 function validacao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -39,11 +41,34 @@ function validacao(req, res) {
             .catch(erro => {
                 console.error(erro);
                 res.status(500).json(erro);
+               
             });
+              
         }
 
+        function deletar(req, res) {
+           var fkUsuario = req.query.fkUsuario;
+        
+            
+            curtidaModel.deletar(fkUsuario)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                )
+                .catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
+        }
+
+       
 module.exports = {
     insereCurtida,
     insereDescurtida,
-    validacao
+    validacao,
+    deletar
 }
