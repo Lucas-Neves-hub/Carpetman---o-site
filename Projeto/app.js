@@ -18,6 +18,7 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var curtidaRouter = require("./src/routes/curtidas");
+var graficoRouter = require("./src/routes/grafico")
 
 
 
@@ -30,6 +31,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/curtidas", curtidaRouter);
+app.use("/grafico", graficoRouter);
 
 
 

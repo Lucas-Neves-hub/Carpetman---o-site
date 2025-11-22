@@ -7,7 +7,7 @@
   <!-- Incluindo a biblioteca Chart.js para desenhar gráficos -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="obterDados()"> <!-- Chamando a função obterDados ao carregar a página -->
+<body onload="grafico()"> <!-- Chamando a função obterDados ao carregar a página -->
   
 <!-- Título para o gráfico de linhas -->
 Gráfico de linhas
@@ -23,65 +23,49 @@ Gráfico de linhas
 <script>
 
 // Função chamada ao carregar a página para obter e processar os dados
-function obterDados(){
+var resposta = 0
+data = 0
+function grafico(){
   // Aqui seria a função que obteria os dados do banco de dados
   // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
  
-  // fetch('/obterDados')
-  // .then(function(response){
-  //   return response.json();
-  // })
-  // .then(function(data){
-  //   plotarGraficoLinha(data);
-  //   plotarGraficoBarra(data);
-  // })
-  // .catch(function(err){
-  //   console.log(err);
-  // })
+   fetch('/grafico/grafico')
+  .then(function(response){
+    return response.json();
+    resposta = response.json()
+    data = Number(resposta[0].opiniao)
+   })
+  .then(function(data){
+    grafico(data);
+    grafico(data);
+   })
+   .catch(function(err){
+     console.log(err);
+   })
 
   // Como eu não configurei as rotas, eu criei um array com os dados para simular a obtenção dos dados
   var dados = [{
-    jogador:'Endrick',
-    votos: 10
-  },
-  {
-    jogador:'João',
-    votos: 5
-  },
-  {
-    jogador:'Maria',
-    votos: 15
-  },
-  {
-    jogador:'José',
-    votos: 20
-  },
-  {
-    jogador:'Pedro',
-    votos: 25
-  },
-  {
-    jogador:'Ana',
-    votos: 30
+    opiniao:'like',
+    quantidade: data
   }]
 
   // Chamando a função para plotar o gráfico de linha com os dados
-  plotarGraficoLinha(dados);
+  grafico(dados);
   // Chamando a função para plotar o gráfico de barra com os dados
-  plotarGraficoBarra(dados)
+  grafico(dados)
 }
 
 // Função para plotar o gráfico de linha
 function plotarGraficoLinha(dados){
-  
+  setInterval(plotarGraficoLinha(), 2000)
   // Separando os rótulos (labels) e os dados dos votos
-  var votos = [];
-  var jogadores = [];
+  var opiniao = ['like'];
+  var quantidade = [data];
 
   // Preenchendo os arrays com os dados
   for(var i = 0; i < dados.length; i++){
-    votos.push(dados[i].votos);
-    jogadores.push(dados[i].jogador);
+    opiniao.push('like');
+    quantidade.push(dados[i].opiniao);
   }
 
   // Capturando o elemento canvas pelo id 
@@ -90,10 +74,10 @@ function plotarGraficoLinha(dados){
   var myChart = new Chart(ctx, {
       type: 'line', // Tipo de gráfico: linha
       data: { // Dados para o gráfico
-          labels: jogadores, // Rótulos no eixo X
+          labels: 'quantidade', // Rótulos no eixo X
           datasets: [{ 
-              label: 'Votos', // Nome do conjunto de dados
-              data: votos, // Dados dos votos
+              label: 'opiniao', // Nome do conjunto de dados
+              data: data, // Dados dos opiniao
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)', // Cor de fundo das linhas
               ],
@@ -108,14 +92,14 @@ function plotarGraficoLinha(dados){
 
 // Função para plotar o gráfico de barra
 function plotarGraficoBarra(dados){
-
-  var votos = [];
-  var jogadores = [];
+setInterval(plotarGraficoBarra(), 2000)
+  var opiniao = ['like'];
+  var quantidade = [data];
 
   // Preenchendo os arrays com os dados
   for(var i = 0; i < dados.length; i++){
-    votos.push(dados[i].votos);
-    jogadores.push(dados[i].jogador);
+    opiniao.push('like');
+    quantidade.push(dados[i].opiniao);
   }
 
   // Capturando o elemento canvas pelo id 
@@ -124,10 +108,10 @@ function plotarGraficoBarra(dados){
   var myChart = new Chart(ctx, {
       type: 'bar', // Tipo de gráfico: barra
       data: { // Dados para o gráfico
-          labels: jogadores, // Rótulos no eixo X
+          labels: 'quantidade', // Rótulos no eixo X
           datasets: [{
-              label: 'Votos', // Nome do conjunto de dados
-              data: votos, // Dados dos votos
+              label: 'opiniao', // Nome do conjunto de dados
+              data: data, // Dados dos opiniao
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
               ],

@@ -18,7 +18,7 @@ router.post("/insereDescurtida", function
     }
 )
 
-router.delete("/deletar", function
+router.delete("/deletar/:fkUsuario", function
     (req,res){
         curtidaController.deletar(req,res);
     }

@@ -28,10 +28,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/", indexRouter);
-app.use("/", usuarioRouter);
-app.use("/", curtidaRouter);
-app.use("/", descurtidaRouter);
-app.use("/", validacaoRouter);
+
+app.use("/usuarios", usuarioRouter);
+app.use("/curtidas", curtidaRouter);
+app.use("/descurtidas", descurtidaRouter);
+app.use("/validacao", validacaoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

@@ -145,48 +145,59 @@
 </body>
 
 <script>
-    async function validacaoDois(idMusica) {
+     function validacaoDois(idMusica) {
        var idUsuario = sessionStorage.ID_USUARIO;
           var fkUsuario = sessionStorage.ID_USUARIO;
     
-           const resp = await fetch(`/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${idUsuario}`);
-           const dados = await resp.json();
-    
-           console.log(dados[0].opiniao);
-    if(dados.length > 0){var tae = prompt(`Deseja remover sua reação de ${dados[0].opiniao}? `)
-          if(tae == 's'){deletar(fkUsuario)}
+         fetch(`/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${idUsuario}`)
+       .then(function (resposta){return resposta.json();})
+       .then(function(dados){
+        if(dados.length > 0){deletar(fkUsuario)
+            var fkUsuario = sessionStorage.ID_USUARIO;} else{insereCurtida(idMusica)}})
+       
 
-    }else{insereCurtida(idMusica)}}
+        
+        .then(function (resposta) {
+        if (resposta.status == 404) {
+            alert("Rota não encontrada (404)");}
+            
+            
+         
+       return resposta.json();})
+            }
+     function validacao(idMusica) {
+       var fkUsuario = sessionStorage.ID_USUARIO;
+         var idUsuario = sessionStorage.ID_USUARIO;  
+    
+    fetch(`/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${fkUsuario}`)
+     .then(function (resposta){return resposta.json();})
+       .then(function(dados){
+        if(dados.length > 0){deletar(fkUsuario)
+            var fkUsuario = sessionStorage.ID_USUARIO;} else{insereDescurtida(idMusica)}})
+       
 
-    
-    async function validacao(idMusica) {
-       var idUsuario = sessionStorage.ID_USUARIO;
-          
-    
-           const resp = await fetch(`/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${idUsuario}`);
-           const dados = await resp.json();
-    
-           console.log(dados);
-    if(dados.length > 0){var tae = prompt(`Deseja remover sua reação de ${dados[0].opiniao}? `)
-        if(tae == 's'){deletar()}
-    
-    }else{insereDescurtida(idMusica)}}
+        
+        .then(function (resposta) {
+        if (resposta.status == 404) {
+            alert("Rota não encontrada (404)");}
+            
+            
+         
+       return resposta.json();})
+            }
 
 function deletar() {
 var fkUsuario = sessionStorage.ID_USUARIO;
 
           console.log("Excluindo reação" + fkUsuario);
-          fetch(`/curtidas/deletar`, {
+          fetch(`/curtidas/deletar/${fkUsuario}`, {
               method: "DELETE",
-              headers: {
-                  "Content-Type": "application/json"
-              }
+              
           }).then(function (resposta) {
   
               if (resposta.ok) {
                   window.alert("Reação deletada com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                  window.location = "/dashboard/mural.html"
-              } else if (resposta.status == 404) {
+                               } else if (resposta.status == 404) {
                   window.alert("Deu 404!");
               } else {
                   throw ("Houve um erro ao tentar realizar a deleção! Código da resposta: " + resposta.status);
@@ -222,7 +233,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
 
         if (resposta.ok) {
             alert("Curtida registrada pelo usuário ID: " + idUsuario);
-            window.location = "/dashboard/cards.html";
+           
 
         } else if (resposta.status == 404) {
             alert("Rota não encontrada (404)");
@@ -264,7 +275,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
 
         if (resposta.ok) {
             alert("Descurtida registrada pelo usuário ID: " + idUsuario);
-            window.location = "/dashboard/cards.html";
+           
 
         } else if (resposta.status == 404) {
             alert("Rota não encontrada (404)");

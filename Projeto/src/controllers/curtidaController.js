@@ -29,6 +29,7 @@ function insereDescurtida(req, res) {
         });
         
 }
+
 function validacao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
    var idMusica = req.query.idMusica;
@@ -46,8 +47,8 @@ function validacao(req, res) {
               
         }
 
-        function deletar(req, res) {
-           var fkUsuario = req.query.fkUsuario;
+function deletar(req, res) {
+           var fkUsuario = req.params.fkUsuario;
         
             
             curtidaModel.deletar(fkUsuario)
