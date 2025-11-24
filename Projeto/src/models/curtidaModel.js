@@ -27,10 +27,10 @@ function validacao(idMusica, fkUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);}
 
-    function deletar(fkUsuario) {
+    function deletar(fkUsuario, idMusica) {
         console.log("ACESSEI O DELETE MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", fkUsuario);
         var instrucaoSql = `
-            DELETE FROM opiniao WHERE fkUsuario = '${fkUsuario}';
+            DELETE FROM opiniao WHERE fkUsuario = '${fkUsuario}' and fkMusica = '${idMusica}';
         `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);

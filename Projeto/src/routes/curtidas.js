@@ -18,7 +18,7 @@ router.post("/insereDescurtida", function
     }
 )
 
-router.delete("/deletar/:fkUsuario", function
+router.delete("/deletar/:fkUsuario/:idMusica", function
     (req,res){
         curtidaController.deletar(req,res);
     }

@@ -49,9 +49,9 @@ function validacao(req, res) {
 
 function deletar(req, res) {
            var fkUsuario = req.params.fkUsuario;
-        
+        var idMusica = req.params.idMusica;
             
-            curtidaModel.deletar(fkUsuario)
+            curtidaModel.deletar(fkUsuario, idMusica)
                 .then(
                     function (resultado) {
                         res.json(resultado);

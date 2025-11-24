@@ -137,6 +137,10 @@
 <img src="">
 <button onclick="validacao(20)">Descurtir</button><button onclick="validacaoDois(20)">Curtir</button>
 
+<h1>Carpetman - Carpetman - Struggling By Myself</h1>
+<img src="">
+<button onclick="validacao(21)">Descurtir</button><button onclick="validacaoDois(21)">Curtir</button>
+
     
 
 </div>
@@ -152,7 +156,7 @@
          fetch(`/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${idUsuario}`)
        .then(function (resposta){return resposta.json();})
        .then(function(dados){
-        if(dados.length > 0){deletar(fkUsuario)
+        if(dados.length > 0){deletar(fkUsuario, idMusica)
             var fkUsuario = sessionStorage.ID_USUARIO;} else{insereCurtida(idMusica)}})
        
 
@@ -168,11 +172,12 @@
      function validacao(idMusica) {
        var fkUsuario = sessionStorage.ID_USUARIO;
          var idUsuario = sessionStorage.ID_USUARIO;  
+        
     
     fetch(`/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${fkUsuario}`)
      .then(function (resposta){return resposta.json();})
        .then(function(dados){
-        if(dados.length > 0){deletar(fkUsuario)
+        if(dados.length > 0){deletar(fkUsuario, idMusica)
             var fkUsuario = sessionStorage.ID_USUARIO;} else{insereDescurtida(idMusica)}})
        
 
@@ -186,11 +191,11 @@
        return resposta.json();})
             }
 
-function deletar() {
+function deletar(fkUsuario, idMusica) {
 var fkUsuario = sessionStorage.ID_USUARIO;
 
           console.log("Excluindo reação" + fkUsuario);
-          fetch(`/curtidas/deletar/${fkUsuario}`, {
+          fetch(`/curtidas/deletar/${fkUsuario}/${idMusica}`, {
               method: "DELETE",
               
           }).then(function (resposta) {

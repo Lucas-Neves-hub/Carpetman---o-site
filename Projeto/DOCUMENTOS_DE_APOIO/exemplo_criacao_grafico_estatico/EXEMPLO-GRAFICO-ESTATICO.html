@@ -16,6 +16,7 @@ Gráfico de linhas
   <canvas id="linha"></canvas>
   <!-- Elemento canvas onde o gráfico de barra será desenhado -->
   <canvas id="barra"></canvas>
+  <button onclick="grafico(fkUsuario)">chamar</button>
 </div>
 
 </body>
@@ -26,18 +27,21 @@ Gráfico de linhas
 var resposta = 0
 data = 0
 function grafico(){
+  fkUsuario = localStorage.ID_USUARIO
   // Aqui seria a função que obteria os dados do banco de dados
   // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
  
    fetch('/grafico/grafico')
   .then(function(response){
-    return response.json();
-    resposta = response.json()
-    data = Number(resposta[0].opiniao)
+    return response.json()
+  console.log(response.json())
    })
-  .then(function(data){
-    grafico(data);
-    grafico(data);
+  .then(function(res){
+resposta = res;
+  data = resposta[0].opiniao
+
+    plotarGraficoLinha(dados);
+   plotarGraficoBarra(dados);
    })
    .catch(function(err){
      console.log(err);
@@ -50,22 +54,21 @@ function grafico(){
   }]
 
   // Chamando a função para plotar o gráfico de linha com os dados
-  grafico(dados);
+plotarGraficoLinha(dados)
   // Chamando a função para plotar o gráfico de barra com os dados
-  grafico(dados)
-}
+plotarGraficoBarra(dados)}
 
 // Função para plotar o gráfico de linha
 function plotarGraficoLinha(dados){
-  setInterval(plotarGraficoLinha(), 2000)
+ 
   // Separando os rótulos (labels) e os dados dos votos
-  var opiniao = ['like'];
-  var quantidade = [data];
+  var opiniao = [];
+  var quantidade = [];
 
   // Preenchendo os arrays com os dados
   for(var i = 0; i < dados.length; i++){
-    opiniao.push('like');
-    quantidade.push(dados[i].opiniao);
+    opiniao.push(dados[i].opiniao);
+    quantidade.push(dados[i].quantidade);
   }
 
   // Capturando o elemento canvas pelo id 
@@ -74,10 +77,10 @@ function plotarGraficoLinha(dados){
   var myChart = new Chart(ctx, {
       type: 'line', // Tipo de gráfico: linha
       data: { // Dados para o gráfico
-          labels: 'quantidade', // Rótulos no eixo X
+          labels: 'opiniao', // Rótulos no eixo X
           datasets: [{ 
               label: 'opiniao', // Nome do conjunto de dados
-              data: data, // Dados dos opiniao
+              data: quantidade, // Dados dos opiniao
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)', // Cor de fundo das linhas
               ],
@@ -92,14 +95,14 @@ function plotarGraficoLinha(dados){
 
 // Função para plotar o gráfico de barra
 function plotarGraficoBarra(dados){
-setInterval(plotarGraficoBarra(), 2000)
-  var opiniao = ['like'];
-  var quantidade = [data];
+
+  var opiniao = [];
+  var quantidade = [];
 
   // Preenchendo os arrays com os dados
   for(var i = 0; i < dados.length; i++){
-    opiniao.push('like');
-    quantidade.push(dados[i].opiniao);
+    opiniao.push(dados[i].opiniao);
+    quantidade.push(dados[i].quantidade);
   }
 
   // Capturando o elemento canvas pelo id 
@@ -108,10 +111,10 @@ setInterval(plotarGraficoBarra(), 2000)
   var myChart = new Chart(ctx, {
       type: 'bar', // Tipo de gráfico: barra
       data: { // Dados para o gráfico
-          labels: 'quantidade', // Rótulos no eixo X
+          labels: 'opiniao', // Rótulos no eixo X
           datasets: [{
               label: 'opiniao', // Nome do conjunto de dados
-              data: data, // Dados dos opiniao
+              data: quantidade, // Dados dos opiniao
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
               ],
