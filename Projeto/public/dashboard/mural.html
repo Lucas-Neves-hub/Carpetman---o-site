@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>Carpetman | Quiz de conhecimento</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
@@ -19,14 +19,14 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+<body onload="validarSessao()" style="background-color: black; color: aliceblue;">
 
     <div class="janela">
 
 
         <div class="header-left">
 
-            <h1>AquaTech</h1>
+            <h1>Carpetman</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -53,210 +53,290 @@
             </div>
 
         </div>
+        <div id="coluna">
 
-        <div class="noticia">
+            <div id="blocos">
+                
+                <div id="blocoI"  style="display:block" >
+        <h1>Questôes Bloco I</h1>
+  <h3>1. Por que Carpetman escolhe manter sua identidade em segredo?</h3>
+  <select id="q1">
+    <option value="0">Selecione...</option>
+    <option value="a">Porque quer que o foco esteja em sua obra, não em sua vida pessoal.</option> certa-----
+    <option value="b">Porque teme perseguição política.</option> 
+    <option value="c">Porque ainda não decidiu revelar quem é.</option>
+    <option value="d">Porque faz parte de um contrato com sua gravadora.</option>
+  </select>
 
-            <h1>O artista ucraniano Carpetman foi nomeado para o prestigiado prêmio Music Moves Europe Awards 2026.</h1>
-            <img
-        src="https://rubryka.com/wp-content/uploads/2025/10/4665d3e4-6c4b-4e35-a795-724b2112.2e16d0ba.fill-1200x1200-1-e1760705889718-840x441.jpg">
-    <h3>O artista ucraniano Carpetman, anteriormente conhecido como Klymmen e membro da Kalush Orchestra, foi nomeado um
-        dos 15 indicados ao Music Moves Europe Awards 2026, um prestigiado prêmio europeu que reconhece novos talentos
-        musicais.</h3>
-    <p>Os nomeados foram anunciados na SoAlive Music Conference & Festival em Sofia, informou o jornal ucraniano Pravda
-        .
 
-        O prêmio Music Moves Europe homenageia jovens artistas europeus que estão moldando novas tendências na música
-        contemporânea. O Comissário Europeu para a Juventude, Cultura e Esporte, Glenn Micallef, afirmou que os
-        indicados deste ano representam o "futuro musical do continente".</p>
 
-    <p style="font-size: 15px;">"Estes 15 nomeados representam artistas excepcionais que estão a moldar o futuro do
-        panorama musical europeu. Tenho orgulho de que o nosso programa Europa Criativa apoie iniciativas que dão aos
-        músicos talentosos o reconhecimento que merecem. É particularmente oportuno que o anúncio deste ano aconteça em
-        Sófia, durante a Conferência de Música SoAlive, que liga o talento regional europeu à comunidade musical
-        global", afirmou Micallef.</p>
-    <p>Os indicados ao Prêmio MME de 2026 são Anna Lille (Noruega), Camille Yembe (Bélgica), Carpetman (Ucrânia), Della
-        (Chipre), DITTER (França), Fine (Dinamarca), florence road (Irlanda), Glazyhaze (Itália), Lia Kali (Espanha),
-        Lunikk (Bulgária), Melina (Grécia), Might Delete Later (Letônia), Ray Lozano (Alemanha), Sarah Julia (Países
-        Baixos) e Sofie Royer (Áustria).
-        Carpetman representa a Ucrânia este ano. Ex-membro da Kalush Orchestra — o grupo vencedor do Eurovision 2022 —
-        ele iniciou sua carreira solo logo em seguida. Compõe, produz e coreografa suas próprias músicas,
-        apresentando-se com um traje característico de tapete que esconde seu rosto e corpo, mantendo sua identidade em
-        segredo.
+  <h3>2. Quando o projeto Carpetman começou oficialmente?</h3>
+  <select id="q2">
+    <option value="0">Selecione...</option>
+    <option value="a">Em 2023</option> certa-----
+    <option value="b">Em 2018</option>
+    <option value="c">Em 2020</option> 
+    <option value="d">Em 2015</option>
+  </select>
 
-        Os fãs já podem votar em Carpetman na categoria Prêmio Escolha do Público no site oficial do MME Awards.
 
-        Os vencedores serão anunciados em 15 de janeiro de 2026, durante a cerimônia de entrega dos prêmios MME no
-        Festival ESNS, na Holanda.
 
-        Serão atribuídos sete prémios:
-        
-        cinco prêmios MME,
-        um Grande Prêmio do Júri, e
-        Um Prêmio de Escolha do Público.
-        Cada vencedor recebe €10.000, enquanto o Grande Prêmio do Júri inclui ainda um voucher de €5.000 para "turnês
-        verdes" para a organização de concertos sustentáveis. O vencedor do Prêmio do Público receberá €5.000.</p>
+  <h3>3. O que influenciou a paixão de Carpetman pela música?</h3>
+  <select id="q3">
+    <option value="0">Selecione...</option>
+    <option value="a">Sua vida adulta</option>
+    <option value="b">Sua infância</option> certa-----
+    <option value="c">Suas viagens profissionais</option>
+    <option value="d">Seu período na faculdade</option>
+  </select>
 
-                <b>Sobre os Prémios Music Moves Europe</b>
-                <p>Apoiado pelo programa Europa Criativa da UE, o prêmio Music Moves Europe reconhece novos artistas de destaque em todo o continente e os ajuda a construir carreiras internacionais. Entre os vencedores anteriores estão alyona alyona, ROSALÍA, Dua Lipa e Hozier.
 
-Os músicos ucranianos têm um histórico de sucesso nas premiações:
 
-Em 2021, alyona alyona ganhou tanto o Prêmio MME quanto o Prêmio de Escolha do Público.
-Em 2022, Alina Pash recebeu o prêmio principal.
-Em 2023, Jerry Heil ganhou o Prêmio de Escolha do Público.</p>
+  <h3>4. O que simboliza o tapete estampado usado pelo artista?</h3>
+  <select id="q4">
+    <option value="0">Selecione...</option>
+    <option value="a">A cultura e tradição da Ucrânia</option> certa-----
+    <option value="b">A modernidade da cultura digital</option> 
+    <option value="c">Um movimento artístico secreto</option>
+    <option value="d">Homenagem à música eletrônica</option>
+  </select>
+
+
+
+  <h3>5. Qual é a nacionalidade de Carpetman?</h3>
+  <select id="q5">
+    <option value="0">Selecione...</option>
+    <option value="a">Russa</option>
+    <option value="b">Americana</option>
+    <option value="c">Ucraniana</option> certa-----
+    <option value="d">Islandesa</option>
+  </select>
+
+  <button onclick="validarB1()">Registrar e seguir para o Bloco II</button>
+</div>
+
+<div id="blocoII"  style="display:none">
+ <h1>Questôes Bloco II</h1>
+  <h3>6. Como os elementos visuais contribuem para a obra de Carpetman?</h3>
+  <select id="q6">
+    <option value="0">Selecione...</option>
+    <option value="a">São acessórios sem importância</option>
+    <option value="b">Atrapalham a experiência sonora</option>
+    <option value="c">Fazem parte essencial da expressão artística multimídia</option> certa-----
+    <option value="d">Servem apenas para ocultar sua identidade</option> 
+  </select>
+
+
+
+  <h3>7. Qual é o papel da dança em suas performances?</h3>
+  <select id="q7">
+    <option value="0">Selecione...</option>
+    <option value="a">Fazer parte integral da arte e da performance </option> certa-----
+    <option value="b">Dar ritmo às músicas</option>
+    <option value="c">Apenas preencher espaços vazios no palco</option> 
+    <option value="d">Servir como aquecimento físico</option>
+  </select>
+
+
+
+  <h3>8. É possível apreciar a música de Carpetman sem ver os elementos visuais?</h3>
+  <select id="q8">
+    <option value="0">Selecione...</option>
+    <option value="a">Sim, mas os elementos visuais elevam a experiência </option> certa-----
+    <option value="b">Não, pois tudo depende da performance</option> 
+    <option value="c">Apenas em gravações ao vivo</option>
+    <option value="d">Apenas se o áudio for remixado</option>
+  </select>
+
+
+
+  <h3>9. Quais gêneros influenciam claramente seu trabalho?</h3>
+  <select id="q9">
+    <option value="0">Selecione...</option>
+    <option value="a">Bossa nova e samba</option>
+    <option value="b">Blues e soul</option> certa-----
+    <option value="c">Pop coreano e metal</option>
+    <option value="d">Jazz e sertanejo</option>
+  </select>
+
+
+
+  <h3>10. Como o material descreve a contribuição do blues e do soul para a música americana?</h3>
+  <select id="q10">
+  <option value="0">Selecione...</option>
+    <option value="a">São gêneros derivados do rock moderno</option>
+    <option value="b">São gêneros sem influência histórica significativa</option>
+    <option value="c">Transformaram tradições africanas e caribenhas em algo tipicamente americano</option> certa-----
+    <option value="d">Foram criados exclusivamente na Europa</option>
+  </select>
+  <button onclick="validarB2()">Registrar e seguir para o Block III</button>
+</div>
+
+<div id="blocoIII" style="display:none">
+   <h1>Questôes Bloco III</h1>
+  <h3>11. Quais tradições influenciaram o blues e o soul, segundo o texto?</h3>
+  <select id="q11">
+  <option value="0">Selecione...</option>
+    <option value="a">Africanas e caribenhas</option> certa-----
+    <option value="b">Tradicionais chinesas</option>
+    <option value="c">Celtas e árabes</option>
+    <option value="d">Japonesas</option>
+  </select>
+
+
+
+  <h3>12. Qual dessas é uma influência citada por Carpetman?</h3>
+  <select id="q12">
+  <option> value="0">Selecione...</option>
+    <option value="a">Pink Floyd</option>
+    <option value="b">Kaleo</option> certa-----
+    <option value="c">Daft Punk</option>
+    <option value="d">Queen</option>
+  </select>
+
+
+
+  <h3>13. O que caracteriza a voz de Carpetman?</h3>
+  <select id="q13">
+  <option value="0">Selecione...</option>
+    <option value="a">Sons eletrônicos sintetizados</option>
+    <option value="b">Semelhança com canto lírico italiano</option>
+    <option value="c">Capacidade de evocar corais gospel e blues do Delta</option> certa-----
+    <option value="d">Estilo robótico proposital</option>
+  </select>
+  
+  
+
+  <h3>14. Como sua obra busca transcender as formas tradicionais de música?</h3>
+  <select id="q14">
+      <option value="0">Selecione...</option>
+    <option value="a">Abandonando completamente o ritmo e a melodia</option>
+    <option value="b">Integrando música, dança e elementos visuais em uma experiência multimídia</option> certa-----
+    <option value="c">Usando apenas instrumentos acústicos</option>
+    <option value="d">Evitando qualquer tipo de influência externa</option>
+</select>
+
+
+
+  <h3>15. Como ele equilibra influências internacionais com sua herança pessoal?</h3>
+  <select id="q15">
+  <option value="0">Selecione...</option>
+    <option value="a">Misturando referências globais enquanto preserva elementos de sua identidade ucraniana</option>certa-----
+    <option value="b">Ignorando suas raízes culturais</option> 
+    <option value="c">Recriando músicas tradicionais de seu país sem mudanças</option>
+    <option value="d">Seguindo rigorosamente estilos americanos tradicionais</option>
+  </select>
+  <button onclick="validarB3()">Concluir e exibir resultados</button>
+</div>
+</div>
+<div id="id_dodiv"></div>
+</diqv>
+
+         
 
 </div>
 </body>
+<script>
+gabarito = ['a','a','b','a','c','c','a','a','b','c','a','b','c','b','a']
+respostaIn = []
+index = 0 
+acertos = 0
+erros = 0
+function validarB1(){
+
+  if(q1.value != 0 && q2.value != 0 && q3.value != 0 && q4.value != 0 && q5.value != 0){
+   respostaIn.push(q1.value)
+   respostaIn.push(q2.value)
+   respostaIn.push(q3.value)
+   respostaIn.push(q4.value)
+   respostaIn.push(q5.value)
+   console.log(respostaIn)
+
+}
+
+if(respostaIn.length > 0){
+  for (var index = 0; index < respostaIn.length; index++) {
+    if(respostaIn[index] == gabarito[index]){acertos += 1}
+   else if(respostaIn[index] != gabarito[index]){erros += 1}
+  
+    }
+
+    console.log('erros:', erros, 'acertos:', acertos)
+}
+
+if(q1.value == 0 || q2.value == 0 || q3.value == 0 || q4.value == 0 || q5.value == 0){alert('Preencha todos os campos para prosseguir')}else{
+blocoI.style.display= 'none'
+ blocoII.style.display= 'block'}
+
+}
+
+function validarB2(){
+
+
+if(q6.value != 0 && q7.value != 0 && q8.value != 0 && q9.value != 0 && q10.value != 0){
+   respostaIn.push(q6.value)
+   respostaIn.push(q7.value)
+   respostaIn.push(q8.value)
+   respostaIn.push(q9.value)
+   respostaIn.push(q10.value)
+   console.log(respostaIn)
+
+}
+
+if(respostaIn.length > 5){
+  for (var index = index; index < respostaIn.length; index++) {
+    if(respostaIn[index] == gabarito[index]){acertos += 1}
+   else if(respostaIn[index] != gabarito[index]){erros += 1}
+  
+    }
+
+    console.log('erros:', erros, 'acertos:', acertos)
+}
+
+
+if(q6.value == 0 || q7.value == 0 || q8.value == 0 || q9.value == 0 || q10.value == 0){alert('Preencha todos os campos para prosseguir')}else{
+blocoII.style.display= 'none'
+ blocoIII.style.display= 'block'}
+}
+
+function validarB3(){
+
+  if(q11.value != 0 && q12.value != 0 && q13.value != 0 && q14.value != 0 && q15.value != 0){
+   respostaIn.push(q11.value)
+   respostaIn.push(q12.value)
+   respostaIn.push(q13.value)
+   respostaIn.push(q14.value)
+   respostaIn.push(q15.value)
+   console.log(respostaIn)
+
+}
+
+if(respostaIn.length > 10){
+  for (var index = index; index < respostaIn.length; index++) {
+    if(respostaIn[index] == gabarito[index]){acertos += 1}
+   else if(respostaIn[index] != gabarito[index]){erros += 1}
+  
+    }
+
+    console.log('erros:', erros, 'acertos:', acertos)
+}
+
+
+if(q11.value == 0 || q12.value == 0 || q13.value == 0 || q14.value == 0 || q15.value == 0){alert('Preencha todos os campos para prosseguir')}else{
+blocoI.style.display= 'block'
+blocoII.style.display= 'block'
+ blocoIII.style.display= 'block'}
+
+ if(acertos < 13 && acertos < 15 ){id_dodiv.innerHTML = `<span style="color:white">Meus parabéns, você acertou ${acertos} questões e errou somente ${erros}. demonstra alto nível de conhecimento sobre o Carpetman!</span>`}
+
+
+
+
+
+
+}
+
+</script>
 
 </html>
 
-<script>
-    /*
-      b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-  
-      function limparFormulario() {
-          document.getElementById("form_postagem").reset();
-      }
-  
-      function publicar() {
-          var idUsuario = sessionStorage.ID_USUARIO;
-  
-          var corpo = {
-              titulo: form_postagem.titulo.value,
-              descricao: form_postagem.descricao.value
-          }
-  
-          fetch(`/avisos/publicar/${idUsuario}`, {
-              method: "post",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(corpo)
-          }).then(function (resposta) {
-  
-              console.log("resposta: ", resposta);
-  
-              if (resposta.ok) {
-                  window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                  window.location = "/dashboard/mural.html";
-                  limparFormulario();
-                  finalizarAguardar();
-              } else if (resposta.status == 404) {
-                  window.alert("Deu 404!");
-              } else {
-                  throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-              }
-          }).catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
-              finalizarAguardar();
-          });
-  
-          return false;
-  
-      }
-  
-      function editar(idAviso) {
-          sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-          console.log("cliquei em editar - " + idAviso);
-          window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-          window.location = "/dashboard/edicao-aviso.html"
-  
-      }
-  
-      function deletar(idAviso) {
-          console.log("Criar função de apagar post escolhido - ID" + idAviso);
-          fetch(`/avisos/deletar/${idAviso}`, {
-              method: "DELETE",
-              headers: {
-                  "Content-Type": "application/json"
-              }
-          }).then(function (resposta) {
-  
-              if (resposta.ok) {
-                  window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                  window.location = "/dashboard/mural.html"
-              } else if (resposta.status == 404) {
-                  window.alert("Deu 404!");
-              } else {
-                  throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-              }
-          }).catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
-          });
-      }
-  
-      function atualizarFeed() {
-          fetch("/avisos/listar").then(function (resposta) {
-              if (resposta.ok) {
-                  if (resposta.status == 204) {
-                      var feed = document.getElementById("feed_container");
-                      var mensagem = document.createElement("span");
-                      mensagem.innerHTML = "Nenhum resultado encontrado."
-                      feed.appendChild(mensagem);
-                      throw "Nenhum resultado encontrado!!";
-                  }
-  
-                  resposta.json().then(function (resposta) {
-                      console.log("Dados recebidos: ", JSON.stringify(resposta));
-  
-                      var feed = document.getElementById("feed_container");
-                      feed.innerHTML = "";
-                      for (let i = 0; i < resposta.length; i++) {
-                          var publicacao = resposta[i];
-  
-                          // criando e manipulando elementos do HTML via JavaScript
-                          var divPublicacao = document.createElement("div");
-                          var spanID = document.createElement("span");
-                          var spanTitulo = document.createElement("span");
-                          var spanNome = document.createElement("span");
-                          var divDescricao = document.createElement("div");
-                          var divButtons = document.createElement("div");
-                          var btnEditar = document.createElement("button");
-                          var btnDeletar = document.createElement("button");
-  
-  
-                          spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                          spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                          spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                          divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                          btnEditar.innerHTML = "Editar";
-                          btnDeletar.innerHTML = "Deletar";
-  
-                          divPublicacao.className = "publicacao";
-                          spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                          spanNome.className = "publicacao-nome";
-                          spanTitulo.className = "publicacao-titulo";
-                          divDescricao.className = "publicacao-descricao";
-  
-                          divButtons.className = "div-buttons"
-  
-                          btnEditar.className = "publicacao-btn-editar"
-                          btnEditar.id = "btnEditar" + publicacao.idAviso;
-                          btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-  
-                          btnDeletar.className = "publicacao-btn-editar"
-                          btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                          btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-  
-                          divPublicacao.appendChild(spanID);
-                          divPublicacao.appendChild(spanNome);
-                          divPublicacao.appendChild(spanTitulo);
-                          divPublicacao.appendChild(divDescricao);
-                          divPublicacao.appendChild(divButtons);
-                          divButtons.appendChild(btnEditar);
-                          divButtons.appendChild(btnDeletar);
-                          feed.appendChild(divPublicacao);
-                      }
-  
-                      finalizarAguardar();
-                  });
-              } else {
-                  throw ('Houve um erro na API!');
-              }
-          }).catch(function (resposta) {
-              console.error(resposta);
-              finalizarAguardar();
-          });
-      }*/
-
-</script>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>Carpetman | Dashboards</title>
 
     
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -15,8 +15,7 @@
     <script src="./../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <link' href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <!-- scripts do Chart.js - 2022-1 -->
@@ -27,7 +26,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="formarKPIS()">
 
     <div class="janela">
         <div class="header-left">
@@ -68,9 +67,21 @@
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
+            <div id="KPIS">
+                
+                <div id="KPI1"></div>
+                <div id="KPI2"></div>
+                <div id="KPI3"></div>
+                <div id="KPI4"></div>
+                <div id="KPI5"></div>
+            </div>
             <div id="graficos">
-                <canvas id="myChartCanvas"></canvas>
-                <canvas id="myChartCanvas1"></canvas>
+                <div id="grafico1"><h1 style="color: aliceblue;">Suas opiniões</h1>
+                    <canvas id="myChartCanvas"></canvas>
+                </div>
+                    <div id="grafico2"><h1 style="color: aliceblue;">Opiniões de todos os usuários</h1>
+                        <canvas id="myChartCanvas1"></canvas>
+                    </div>
             </div>
         </div>
     </div>
@@ -81,6 +92,25 @@
 </html>
 
 <script>
+var div = ''
+function formarKPIS(fkUsuario){
+    var fkUsuario = sessionStorage.ID_USUARIO
+fetch(`/KPI/KPI/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Longas => {
+    console.log(`Dados recebidos: ${Longas[0]["count(opiniao)"]}`)
+
+    if(Longas[0]["count(opiniao)"] >= 6 ){div = `, demonstra certa apreciação por uma experiência mais imersiva, onde se pode aprofundar na música!`}
+    else if (Longas[0]["count(opiniao)"] < 6 ){div = `, demonstra busca de variedade e alternância para manter o interesse e a atenção ativos!`}
+
+ KPI1.innerHTML=`Você curtiu ${Longas[0]["count(opiniao)"]}/8 das músicas longas${div}`
+})   .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+
+
+setInterval(formarKPIS,2000)
+formarKPIS()
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var likes = 0
     var myChart = ''
@@ -96,6 +126,28 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function grafico() {
 var fkUsuario = sessionStorage.ID_USUARIO
        
@@ -137,17 +189,19 @@ var fkUsuario = sessionStorage.ID_USUARIO
             datasets: [{
                 label: 'Músicas que você gostou',
                 data:[likes[0]["count(opiniao)"]],
+                barPercentage: 0.5,
                 fill: false,
-                backgroundColor: 'blue',
+                backgroundColor: 'rgb(54, 162, 235)',
                 borderColor: 'blue',
             
             },
         {
                 label: 'Músicas que você não gostou',
                 data:[dislikes[0]["count(opiniao)"]],
+                barPercentage: 0.5,
                 fill: false,
-                backgroundColor: 'red',
-                borderColor: 'blue',
+                backgroundColor: '#FF2C2C',
+                borderColor: 'rgba(72, 149, 239, 0.7)',
             
             }]
         };
@@ -179,26 +233,33 @@ var fkUsuario = sessionStorage.ID_USUARIO
             config
         );
 
-        const data ={
-        labels:['Opiniões gerais'],
-        datasets:[{
-                label: 'Curtidas totais',
-                data:[Curtidas[0]["count(opiniao)"]],
-                fill: false,
-                backgroundColor: 'purple',
-                borderColor: 'blue',
+
+        const data = {
             
-            },
-        {
-                label: 'Descurtidas totais',
-                data:[Descurtidas[0]["count(opiniao)"]],
-                fill: false,
-                backgroundColor: 'white',
-                borderColor: 'blue',
-            
-            }]}
+  labels: [
+    'Descurtida',
+        'Curtida'
+  ],
+  datasets: [{
+    label: 'Opiniões',
+    data: [Descurtidas[0]["count(opiniao)"],Curtidas[0]["count(opiniao)"]],
+    backgroundColor: [
+      
+      '#FF2C2C',
+      'rgb(54, 162, 235)'
+    ],
+    hoverOffset: 4,
+   
+  }],
+   option:{
+                response: true,
+            }
+};
+
+       
+        
         const conf = {
-            type: 'polarArea',
+            type: 'doughnut',
             data: data
         };
         

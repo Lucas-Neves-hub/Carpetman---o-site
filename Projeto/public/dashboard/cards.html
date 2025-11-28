@@ -34,7 +34,7 @@
             </div>
 
             <div class="btn-nav">
-                <h3>Videoclipes</h3>
+                <h3>Video/clipes</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -58,87 +58,87 @@
 
     <div class="video">
 <h1>Carpetman - Live Without a System</h1>
-<img src="">
+<img src="/clipes/a.png">
 <button onclick="validacao(1)">Descurtir</button><button onclick="validacaoDois(1)">Curtir</button>
 
 <h1>Carpetman - My honey</h1>
-<img src="https://i.ytimg.com/vi/h0EtLWfG644/maxresdefault.jpg">
+<img src="/clipes/b.jpg">
 <button onclick="validacao(2)">Descurtir</button><button onclick="validacaoDois(2)">Curtir</button>
 
 <h1>Carpetman - Feel so cold</h1>
-<img src="">
+<img src="/clipes/c.jpg">
 <button onclick="validacao(3)">Descurtir</button><button onclick="validacaoDois(3)">Curtir</button>
 
 <h1>Carpetman - Endless fight</h1>
-<img src="">
+<img src="/clipes/d.jpg">
 <button onclick="validacao(4)">Descurtir</button><button onclick="validacaoDois(4)">Curtir</button>
 
 <h1>Carpetman - Can't  lose more</h1>
-<img src="">
+<img src="/clipes/e.jpg">
 <button onclick="validacao(5)">Descurtir</button><button onclick="validacaoDois(5)">Curtir</button>
 
 <h1>Carpetman - You Will Never Know it</h1>
-<img src="">
+<img src="/clipes/f.jpg">
 <button onclick="validacao(6)">Descurtir</button><button onclick="validacaoDois(6)">Curtir</button>
 
 <h1>Carpetman - Anyway, I Love It</h1>
-<img src="">
+<img src="/clipes/g.jpg">
 <button onclick="validacao(7)">Descurtir</button><button onclick="validacaoDois(7)">Curtir</button>
 
 <h1>Carpetman & Theo Remme - Trembling Island</h1>
-<img src="">
+<img src="/clipes/h.jpg">
 <button onclick="validacao(8)">Descurtir</button><button onclick="validacaoDois(8)">Curtir</button>
 
 <h1>Carpetman - What Does It Mean To You</h1>
-<img src="">
+<img src="/clipes/i.jfif">
 <button onclick="validacao(9)">Descurtir</button><button onclick="validacaoDois(9)">Curtir</button>
 
 <h1>Carpetman - Make It Lower</h1>
-<img src="">
+<img src="/clipes/j.jpg">
 <button onclick="validacao(10)">Descurtir</button><button onclick="validacaoDois(10)">Curtir</button>
 
 <h1>Carpetman - Smoking Cherry</h1>
-<img src="">
+<img src="/clipes/k.jpg">
 <button onclick="validacao(11)">Descurtir</button><button onclick="validacaoDois(11)">Curtir</button>
 
 <h1>Carpetman - WalKing Through the Code</h1>
-<img src="">
+<img src="/clipes/l.jpg">
 <button onclick="validacao(12)">Descurtir</button><button onclick="validacaoDois(12)">Curtir</button>
 
 <h1>Carpetman x Scott Rill - Shades Of Gray</h1>
-<img src="">
+<img src="/clipes/m.jpg">
 <button onclick="validacao(13)">Descurtir</button><button onclick="validacaoDois(13)">Curtir</button>
 
 <h1>Carpetman, Black Soil - Let It Burn</h1>
-<img src="">
+<img src="/clipes/n.jpg">
 <button onclick="validacao(14)">Descurtir</button><button onclick="validacaoDois(14)">Curtir</button>
 
 <h1>Carpetman, Black Soil - Alleys of My Mind</h1>
-<img src="">
+<img src="/clipes/o.jpg">
 <button onclick="validacao(15)">Descurtir</button><button onclick="validacaoDois(15)">Curtir</button>
 
 <h1>Carpetman - Call Me Insane</h1>
-<img src="">
+<img src="/clipes/p.jpg">
 <button onclick="validacao(16)">Descurtir</button><button onclick="validacaoDois(16)">Curtir</button>
 
 <h1>Carpetman - Manuscript</h1>
-<img src="">
+<img src="/clipes/q.jpg">
 <button onclick="validacao(17)">Descurtir</button><button onclick="validacaoDois(17)">Curtir</button>
 
 <h1>Carpetman - Ain'tgottafeelthatpain</h1>
-<img src="">
+<img src="/clipes/r.jpg">
 <button onclick="validacao(18)">Descurtir</button><button onclick="validacaoDois(18)">Curtir</button>
 
 <h1>Carpetman - What's going on</h1>
-<img src="">
+<img src="/clipes/s.jpg">
 <button onclick="validacao(19)">Descurtir</button><button onclick="validacaoDois(19)">Curtir</button>
 
 <h1>Carpetman - Golden Tear</h1>
-<img src="">
+<img src="/clipes/t.jfif">
 <button onclick="validacao(20)">Descurtir</button><button onclick="validacaoDois(20)">Curtir</button>
 
 <h1>Carpetman - Carpetman - Struggling By Myself</h1>
-<img src="">
+<img src="/clipes/u.jfif">
 <button onclick="validacao(21)">Descurtir</button><button onclick="validacaoDois(21)">Curtir</button>
 
     
@@ -221,7 +221,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
 
 
 
-    fetch("http://localhost:3333/curtidas/insereCurtida", {
+    fetch("http://localhost:8080/curtidas/insereCurtida", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -262,7 +262,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
     var descurtida = "dislike";
     var prosseguir = false;
 
-    fetch("http://localhost:3333/curtidas/insereDescurtida", {
+    fetch("http://localhost:8080/curtidas/insereDescurtida", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

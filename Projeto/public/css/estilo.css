@@ -159,7 +159,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: #32b9cd;
+  color: #FF2C2C;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
@@ -184,14 +184,14 @@ body {
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
+  border: 2px solid #FF2C2C;
   text-align: center;
   border-radius: 10px;
   margin: 0;
 }
 
 .formulario select {
-  border: 2px solid #32b9cd;
+  border: 2px solid #FF2C2C;
   background-color: white;
   color: gray;
   height: 36px;
@@ -215,7 +215,7 @@ body {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #32b9cd;
+  background-color: #FF2C2C;
   width: 120px;
   height: 30px;
   align-self: center;
@@ -272,7 +272,7 @@ body {
 
 input {
   margin-bottom: 10px;
-  border: 2px solid #32b9cd;
+  border: 2px solid #FF2C2C;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
