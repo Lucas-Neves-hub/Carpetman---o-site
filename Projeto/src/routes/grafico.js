@@ -27,4 +27,5 @@ router.get("/graficoTotalD", function
     }
 )
 
+
 module.exports = router;

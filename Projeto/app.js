@@ -20,6 +20,9 @@ var usuarioRouter = require("./src/routes/usuarios");
 var curtidaRouter = require("./src/routes/curtidas");
 var graficoRouter = require("./src/routes/grafico")
 var KPIRouter = require("./src/routes/KPI")
+var KPI3Router = require("./src/routes/KPI3")
+var KPI2Router = require("./src/routes/KPI2")
+var quizInsRouter = require("./src/routes/quizIns")
 
 
 
@@ -34,6 +37,9 @@ app.use("/usuarios", usuarioRouter);
 app.use("/curtidas", curtidaRouter);
 app.use("/grafico", graficoRouter);
 app.use("/KPI", KPIRouter);
+app.use("/KPI3", KPI3Router);
+app.use("/KPI2", KPI2Router);
+app.use("/quizIns", quizInsRouter);
 
 
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
+    
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -45,7 +45,7 @@
             </div>
 
             <div class="btn-nav">
-                <h3>Notícias recentes</h3>
+                <h3>Quiz de conhecimento</h3>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -56,8 +56,15 @@
         <div id="coluna">
 
             <div id="blocos">
+
+              <div id="bloco0">
+
+                <h1>Questionário sobre o artista Carpetman. você pode conhecer mais sobre no <a href="http://localhost:8080/carpetman.html">Resumo</a></h1><br>
+                <h1>Deseja começar?</h1>
+                <button onclick="comecar()">Começar</button>
+              </div>
                 
-                <div id="blocoI"  style="display:block" >
+                <div id="blocoI"  style="display:none" >
         <h1>Questôes Bloco I</h1>
   <h3>1. Por que Carpetman escolhe manter sua identidade em segredo?</h3>
   <select id="q1">
@@ -176,7 +183,7 @@
    <h1>Questôes Bloco III</h1>
   <h3>11. Quais tradições influenciaram o blues e o soul, segundo o texto?</h3>
   <select id="q11">
-  <option value="0">Selecione...</option>
+  <option value="0"> Selecione...</option>
     <option value="a">Africanas e caribenhas</option> certa-----
     <option value="b">Tradicionais chinesas</option>
     <option value="c">Celtas e árabes</option>
@@ -187,7 +194,7 @@
 
   <h3>12. Qual dessas é uma influência citada por Carpetman?</h3>
   <select id="q12">
-  <option> value="0">Selecione...</option>
+    <option value="0">Selecione...</option>
     <option value="a">Pink Floyd</option>
     <option value="b">Kaleo</option> certa-----
     <option value="c">Daft Punk</option>
@@ -198,7 +205,7 @@
 
   <h3>13. O que caracteriza a voz de Carpetman?</h3>
   <select id="q13">
-  <option value="0">Selecione...</option>
+    <option value="0">Selecione...</option>
     <option value="a">Sons eletrônicos sintetizados</option>
     <option value="b">Semelhança com canto lírico italiano</option>
     <option value="c">Capacidade de evocar corais gospel e blues do Delta</option> certa-----
@@ -209,7 +216,7 @@
 
   <h3>14. Como sua obra busca transcender as formas tradicionais de música?</h3>
   <select id="q14">
-      <option value="0">Selecione...</option>
+    <option value="0">Selecione...</option>
     <option value="a">Abandonando completamente o ritmo e a melodia</option>
     <option value="b">Integrando música, dança e elementos visuais em uma experiência multimídia</option> certa-----
     <option value="c">Usando apenas instrumentos acústicos</option>
@@ -220,7 +227,7 @@
 
   <h3>15. Como ele equilibra influências internacionais com sua herança pessoal?</h3>
   <select id="q15">
-  <option value="0">Selecione...</option>
+    <option value="0">Selecione...</option>
     <option value="a">Misturando referências globais enquanto preserva elementos de sua identidade ucraniana</option>certa-----
     <option value="b">Ignorando suas raízes culturais</option> 
     <option value="c">Recriando músicas tradicionais de seu país sem mudanças</option>
@@ -237,12 +244,28 @@
 </div>
 </body>
 <script>
-gabarito = ['a','a','b','a','c','c','a','a','b','c','a','b','c','b','a']
-respostaIn = []
-index = 0 
-acertos = 0
-erros = 0
+var gabarito = ['a','a','b','a','c','c','a','a','b','c','a','b','c','b','a']
+var respostaIn = []
+var ind = 0 
+var acertos = 0
+var erros = 0
+
+function comecar(){
+bloco0.style.display = 'none'
+blocoI.style.display = 'block'
+
+
+
+
+
+}
+
+
+
+
 function validarB1(){
+ 
+  
 
   if(q1.value != 0 && q2.value != 0 && q3.value != 0 && q4.value != 0 && q5.value != 0){
    respostaIn.push(q1.value)
@@ -252,15 +275,17 @@ function validarB1(){
    respostaIn.push(q5.value)
    console.log(respostaIn)
 
-}
+  }
+
+ 
 
 if(respostaIn.length > 0){
-  for (var index = 0; index < respostaIn.length; index++) {
-    if(respostaIn[index] == gabarito[index]){acertos += 1}
-   else if(respostaIn[index] != gabarito[index]){erros += 1}
-  
+  for (var index = ind; index < respostaIn.length; index++) {
+    if(respostaIn[index] == gabarito[index]){acertos++}
+   else if(respostaIn[index] != gabarito[index]){erros++}
+ 
     }
-
+ind += 5
     console.log('erros:', erros, 'acertos:', acertos)
 }
 
@@ -284,12 +309,12 @@ if(q6.value != 0 && q7.value != 0 && q8.value != 0 && q9.value != 0 && q10.value
 }
 
 if(respostaIn.length > 5){
-  for (var index = index; index < respostaIn.length; index++) {
-    if(respostaIn[index] == gabarito[index]){acertos += 1}
-   else if(respostaIn[index] != gabarito[index]){erros += 1}
+  for (var index = ind; index < respostaIn.length; index++) {
+    if(respostaIn[index] == gabarito[index]){acertos++}
+   else if(respostaIn[index] != gabarito[index]){erros++}
   
     }
-
+ind += 5
     console.log('erros:', erros, 'acertos:', acertos)
 }
 
@@ -312,12 +337,12 @@ function validarB3(){
 }
 
 if(respostaIn.length > 10){
-  for (var index = index; index < respostaIn.length; index++) {
-    if(respostaIn[index] == gabarito[index]){acertos += 1}
-   else if(respostaIn[index] != gabarito[index]){erros += 1}
+  for (var index = ind; index < respostaIn.length; index++) {
+    if(respostaIn[index] == gabarito[index]){acertos++}
+   else if(respostaIn[index] != gabarito[index]){erros++}
   
     }
-
+ind += 5
     console.log('erros:', erros, 'acertos:', acertos)
 }
 
@@ -327,14 +352,72 @@ blocoI.style.display= 'block'
 blocoII.style.display= 'block'
  blocoIII.style.display= 'block'}
 
- if(acertos < 13 && acertos < 15 ){id_dodiv.innerHTML = `<span style="color:white">Meus parabéns, você acertou ${acertos} questões e errou somente ${erros}. demonstra alto nível de conhecimento sobre o Carpetman!</span>`}
+ if(acertos == 15 ){id_dodiv.innerHTML = `<h1 style="color:green">Meus parabéns, você acertou ${acertos} questões. você conhece demais do Carpetman!</h1>`
+  var fkUsuario = sessionStorage.ID_USUARIO;
+  positivo = acertos
+ negativo = erros
+ quizIns(fkUsuario, positivo, negativo)
+ }
+
+ else if(acertos > 11 && acertos < 15 ){id_dodiv.innerHTML = `<h1 style="color:green">Meus parabéns, você acertou ${acertos} questões e errou somente ${erros}. demonstra alto nível de conhecimento sobre o Carpetman!</h1>`
+  var fkUsuario = sessionStorage.ID_USUARIO;
+  positivo = acertos
+ negativo = erros
+ quizIns(fkUsuario, positivo, negativo)
+ }
+ else if(acertos < 13 && acertos >= 7 ){id_dodiv.innerHTML = `<h1 style="color:yellow">Você acertou ${acertos} questões e errou ${erros}. até que você sabe um pouquinho sobre o Carpetman!</h1>`
+ var fkUsuario = sessionStorage.ID_USUARIO;
+ positivo = acertos
+ negativo = erros
+  quizIns(fkUsuario, positivo, negativo)
+ }
+ else if(acertos < 7  ){id_dodiv.innerHTML = `<h1 style="color:red">Você acertou ${acertos} questões e errou ${erros}. você sabe bem pouco sobre o Carpetman... ou será que chutou?</h1>`
+ var fkUsuario = sessionStorage.ID_USUARIO;
+ positivo = acertos
+ negativo = erros
+  quizIns(fkUsuario, positivo, negativo)
+ }
 
 
+function quizIns(fkUsuario, positivo, negativo) {
+ 
+
+
+    fetch(`http://192.168.15.4:8080/quizIns/${fkUsuario}/${positivo}/${negativo}`, {
+        method: "POST",
+      
+    })
+    .then(function (resposta) {
+        console.log("resposta:", resposta);
+
+        if (resposta.ok) {
+            alert("Pontuação salva! " + fkUsuario);
+           
+
+        } else if (resposta.status == 404) {
+            alert("Rota não encontrada (404)");
+
+        } else {
+            throw ("Erro ao registrar pontuação! Código: " + resposta.status);
+        }
+    })
+    .catch(function (erro) {
+        console.log("#ERRO:", erro);
+    });
+
+    return true;
+}
+
+ 
 
 
 
 
 }
+
+
+
+
 
 </script>
 

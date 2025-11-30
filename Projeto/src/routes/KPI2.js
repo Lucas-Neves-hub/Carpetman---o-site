@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-var KPIController = require("../controllers/KPIController");
+var KPI2Controller = require("../controllers/KPI2Controller");
 
 router.get("/:fkUsuario", function (req, res) {
-    KPIController.KPI(req, res);
+    KPI2Controller.KPI2(req, res);
 });
 
 

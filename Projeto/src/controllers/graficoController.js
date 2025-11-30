@@ -71,6 +71,8 @@ function grafico(req, res) {
             });
               
         }  
+
+       
 module.exports = {
     grafico, 
 graficoDois,

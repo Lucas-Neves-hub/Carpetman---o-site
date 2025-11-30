@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
+    
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link' href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -26,7 +26,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body onload="formarKPIS()">
+<body onload="formarKPI(), formarKPI2(), formarKPI3()">
 
     <div class="janela">
         <div class="header-left">
@@ -49,8 +49,8 @@
             </div>
 
             <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Notícias recentes</h3>
+                <a href="./quiz.html">
+                    <h3>Quiz de conhecimento</h3>
                 </a>
             </div>
 
@@ -61,8 +61,7 @@
         </div>
 
         <div class="dash">
-            <div id="alerta">
-            </div>
+        
 
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
@@ -72,8 +71,7 @@
                 <div id="KPI1"></div>
                 <div id="KPI2"></div>
                 <div id="KPI3"></div>
-                <div id="KPI4"></div>
-                <div id="KPI5"></div>
+               
             </div>
             <div id="graficos">
                 <div id="grafico1"><h1 style="color: aliceblue;">Suas opiniões</h1>
@@ -93,24 +91,62 @@
 
 <script>
 var div = ''
-function formarKPIS(fkUsuario){
+function formarKPI(fkUsuario){
     var fkUsuario = sessionStorage.ID_USUARIO
-fetch(`/KPI/KPI/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Longas => {
+fetch(`http://192.168.15.4:8080/KPI/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Longas => {
     console.log(`Dados recebidos: ${Longas[0]["count(opiniao)"]}`)
+    
 
-    if(Longas[0]["count(opiniao)"] >= 6 ){div = `, demonstra certa apreciação por uma experiência mais imersiva, onde se pode aprofundar na música!`}
-    else if (Longas[0]["count(opiniao)"] < 6 ){div = `, demonstra busca de variedade e alternância para manter o interesse e a atenção ativos!`}
+    
 
- KPI1.innerHTML=`Você curtiu ${Longas[0]["count(opiniao)"]}/8 das músicas longas${div}`
+ KPI1.innerHTML=`<h3>Você curtiu ${Longas[0]["count(opiniao)"]}/8 das músicas de duração longa!!</h3>`
 })   .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
+    })
+    
 }
 
+ function formarKPI3(){
+    var fkUsuario = sessionStorage.ID_USUARIO
+fetch(`/KPI3/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Curtas => {
+    console.log(`Dados recebidos: ${Curtas[0]["count(opiniao)"]}`)
+     KPI3.innerHTML=`<h3>Você curtiu ${Curtas[0]["count(opiniao)"]}/3 das músicas de duração curta!!</h3>`
+})   .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    })
 
 
-setInterval(formarKPIS,2000)
-formarKPIS()
+
+
+
+
+ }
+
+
+  function formarKPI2(){
+    var fkUsuario = sessionStorage.ID_USUARIO
+fetch(`/KPI2/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Medias => {
+    console.log(`Dados recebidos: ${Medias[0]["count(opiniao)"]}`)
+     KPI2.innerHTML=`<h3>Você curtiu ${Medias[0]["count(opiniao)"]}/10 das músicas de duração mediana!!</h3>`
+})   .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    })
+
+
+
+
+
+
+ }
+
+
+
+setInterval(formarKPI,2000)
+setInterval(formarKPI2,2000)
+setInterval(formarKPI3,2000)
+formarKPI()
+formarKPI2()
+formarKPI3()
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var likes = 0
     var myChart = ''
@@ -151,12 +187,12 @@ formarKPIS()
     function grafico() {
 var fkUsuario = sessionStorage.ID_USUARIO
        
-        fetch(`/grafico/graficoTotalL`, { cache: 'no-store' }).then(res => res.json()).then(Curtidas => {
+        fetch(`http://192.168.15.4:8080/grafico/graficoTotalL`, { cache: 'no-store' }).then(res => res.json()).then(Curtidas => {
             fetch(`/grafico/graficoTotalD`, { cache: 'no-store' }).then(res => res.json()).then(Descurtidas => {
 
-        fetch(`/grafico/grafico/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(likes => {
+        fetch(`http://192.168.15.4:8080/grafico/grafico/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(likes => {
 
-        fetch(`/grafico/graficoDois/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(dislikes => {
+        fetch(`http://192.168.15.4:8080/grafico/graficoDois/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(dislikes => {
                     console.log(`Dados recebidos: ${likes}`)
                      console.log(`Dados recebidos: ${dislikes}`);
 
@@ -286,10 +322,10 @@ function atualizarGrafico() {
         .then(Curtidas => {
 
             // Atualiza o dataset existente
-            myChart.data.datasets[0].data[0] = Curtidas[0]["count(opiniao)"];
+            myChart1.data.datasets[0].data[1] = Curtidas[0]["count(opiniao)"];
 
             // Atualiza a exibição
-            myChart.update();
+            myChart1.update();
          console.log("Gráfico atualizado:", Curtidas[0]["count(opiniao)"]);
         })
     fetch(`/grafico/graficoTotalD`, { cache: 'no-store' })
@@ -297,10 +333,10 @@ function atualizarGrafico() {
         .then(Descurtidas => {
 
             // Atualiza o dataset existente
-            myChart.data.datasets[0].data[0] = Descurtidas[0]["count(opiniao)"];
+            myChart1.data.datasets[0].data[0] = Descurtidas[0]["count(opiniao)"];
 
             // Atualiza a exibição
-            myChart.update();
+            myChart1.update();
          console.log("Gráfico atualizado:", Descurtidas[0]["count(opiniao)"]);
         })
     fetch(`/grafico/grafico/${fkUsuario}`, { cache: 'no-store' })

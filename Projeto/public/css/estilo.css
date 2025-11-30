@@ -305,11 +305,11 @@ input {
 
 /* SIMULADOR */
 
-.simulador {
+.carpetman {
   color: white;
 }
 
-.simulador .container {
+.carpetman .container {
   flex-direction: column;
   
   height: var(--tamanho-simulador);
