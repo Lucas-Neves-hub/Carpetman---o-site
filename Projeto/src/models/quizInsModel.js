@@ -7,7 +7,7 @@ function quizIns(fkUsuario, positivo, negativo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO quiz (acertos, erros, fkUsuario) VALUES ( ${positivo}, ${negativo}, ${fkUsuario});
+        INSERT INTO tentativa (acertos, erros, fkUsuario) VALUES ( ${positivo}, ${negativo}, ${fkUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

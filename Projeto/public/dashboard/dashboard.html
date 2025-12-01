@@ -93,7 +93,7 @@
 var div = ''
 function formarKPI(fkUsuario){
     var fkUsuario = sessionStorage.ID_USUARIO
-fetch(`http://192.168.15.4:8080/KPI/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Longas => {
+fetch(`http://localhost:8080/KPI/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(Longas => {
     console.log(`Dados recebidos: ${Longas[0]["count(opiniao)"]}`)
     
 
@@ -187,12 +187,12 @@ formarKPI3()
     function grafico() {
 var fkUsuario = sessionStorage.ID_USUARIO
        
-        fetch(`http://192.168.15.4:8080/grafico/graficoTotalL`, { cache: 'no-store' }).then(res => res.json()).then(Curtidas => {
+        fetch(`http://localhost:8080/grafico/graficoTotalL`, { cache: 'no-store' }).then(res => res.json()).then(Curtidas => {
             fetch(`/grafico/graficoTotalD`, { cache: 'no-store' }).then(res => res.json()).then(Descurtidas => {
 
-        fetch(`http://192.168.15.4:8080/grafico/grafico/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(likes => {
+        fetch(`http://localhost:8080/grafico/grafico/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(likes => {
 
-        fetch(`http://192.168.15.4:8080/grafico/graficoDois/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(dislikes => {
+        fetch(`http://localhost:8080/grafico/graficoDois/${fkUsuario}`, { cache: 'no-store' }).then(res => res.json()).then(dislikes => {
                     console.log(`Dados recebidos: ${likes}`)
                      console.log(`Dados recebidos: ${dislikes}`);
 

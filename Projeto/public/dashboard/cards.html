@@ -153,7 +153,7 @@
        var idUsuario = sessionStorage.ID_USUARIO;
           var fkUsuario = sessionStorage.ID_USUARIO;
     
-         fetch(`http://192.168.15.4:8080/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${idUsuario}`)
+         fetch(`http://localhost:8080/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${idUsuario}`)
        .then(function (resposta){return resposta.json();})
        .then(function(dados){
         if(dados.length > 0){deletar(fkUsuario, idMusica)
@@ -174,7 +174,7 @@
          var idUsuario = sessionStorage.ID_USUARIO;  
         
     
-    fetch(`http://192.168.15.4:8080/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${fkUsuario}`)
+    fetch(`http://localhost:8080/curtidas/validacao?idMusica=${idMusica}&fkUsuario=${fkUsuario}`)
      .then(function (resposta){return resposta.json();})
        .then(function(dados){
         if(dados.length > 0){deletar(fkUsuario, idMusica)
@@ -195,7 +195,7 @@ function deletar(fkUsuario, idMusica) {
 var fkUsuario = sessionStorage.ID_USUARIO;
 
           console.log("Excluindo reação" + fkUsuario);
-          fetch(`http://192.168.15.4:8080/curtidas/deletar/${fkUsuario}/${idMusica}`, {
+          fetch(`http://localhost:8080/curtidas/deletar/${fkUsuario}/${idMusica}`, {
               method: "DELETE",
               
           }).then(function (resposta) {
@@ -221,7 +221,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
 
 
 
-    fetch("http://192.168.15.4:8080/curtidas/insereCurtida", {
+    fetch("http://localhost:8080/curtidas/insereCurtida", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -262,7 +262,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
     var descurtida = "dislike";
     var prosseguir = false;
 
-    fetch("http://192.168.15.4:8080/curtidas/insereDescurtida", {
+    fetch("http://localhost:8080/curtidas/insereDescurtida", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
