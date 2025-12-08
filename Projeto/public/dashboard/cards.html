@@ -201,7 +201,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
           }).then(function (resposta) {
   
               if (resposta.ok) {
-                  window.alert("Reação deletada com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                  window.alert("Reação deletada com sucesso!");
                                } else if (resposta.status == 404) {
                   window.alert("Deu 404!");
               } else {
@@ -237,7 +237,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
         console.log("resposta:", resposta);
 
         if (resposta.ok) {
-            alert("Curtida registrada pelo usuário ID: " + idUsuario);
+            alert("Curtida registrada com sucesso! ");
            
 
         } else if (resposta.status == 404) {
@@ -279,7 +279,7 @@ var fkUsuario = sessionStorage.ID_USUARIO;
     
 
         if (resposta.ok) {
-            alert("Descurtida registrada pelo usuário ID: " + idUsuario);
+            alert("Descurtida registrada com sucesso!");
            
 
         } else if (resposta.status == 404) {
